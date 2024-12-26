@@ -14,18 +14,16 @@ module.exports = async (req, res) => {
 
     const interaction = JSON.parse(rawBody);
 
-    // Handle PING
+    // Respond to Discord's PING
     if (interaction.type === 1) {
       return res.status(200).json({ type: 1 });
     }
 
-    // Handle application commands (e.g., /hello)
+    // Handle application commands
     if (interaction.type === 2 && interaction.data.name === "hello") {
       return res.status(200).json({
         type: 4,
-        data: {
-          content: "Hello! This bot is running on Vercel!",
-        },
+        data: { content: "Hello from Vercel!" },
       });
     }
 
@@ -35,18 +33,12 @@ module.exports = async (req, res) => {
   res.status(405).send("Method not allowed");
 };
 
-// Helper function to get raw request body
+// Helper to get raw request body
 async function getRawBody(req) {
   return new Promise((resolve, reject) => {
     let data = "";
-    req.on("data", (chunk) => {
-      data += chunk;
-    });
-    req.on("end", () => {
-      resolve(data);
-    });
-    req.on("error", (err) => {
-      reject(err);
-    });
+    req.on("data", (chunk) => (data += chunk));
+    req.on("end", () => resolve(data));
+    req.on("error", reject);
   });
 }
