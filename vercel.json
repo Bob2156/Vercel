@@ -1,14 +1,14 @@
 {
-  "version": 2,
-  "functions": {
-    "api/discord.js": {
-      "runtime": "nodejs18.x"
-    }
+  "name": "vercel-discord-bot",
+  "version": "1.0.0",
+  "engines": {
+    "node": "18.x"
   },
-  "routes": [
-    {
-      "src": "/api/discord",
-      "dest": "/api/discord.js"
-    }
-  ]
+  "main": "api/discord.js",
+  "scripts": {
+    "start": "vercel dev"
+  },
+  "dependencies": {
+    "discord-api-types": "^0.37.34"
+  }
 }
