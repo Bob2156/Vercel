@@ -1,14 +1,3 @@
 {
-  "version": 2,
-  "functions": {
-    "api/discord.js": {
-      "runtime": "nodejs.x"
-    }
-  },
-  "routes": [
-    {
-      "src": "/api/discord",
-      "dest": "/api/discord.js"
-    }
-  ]
+  "version": 2
 }
