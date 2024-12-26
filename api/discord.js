@@ -1,4 +1,5 @@
 const { verifyKey } = require("discord-interactions");
+const getRawBody = require("raw-body");
 
 module.exports = async (req, res) => {
   if (req.method === "POST") {
@@ -32,12 +33,3 @@ module.exports = async (req, res) => {
 
   res.status(405).send("Method not allowed");
 };
-
-async function getRawBody(req) {
-  return new Promise((resolve, reject) => {
-    let data = "";
-    req.on("data", (chunk) => (data += chunk));
-    req.on("end", () => resolve(data));
-    req.on("error", reject);
-  });
-}
