@@ -1,11 +1,14 @@
 {
-  "name": "vercel-discord-bot",
+  "name": "discord-vercel-bot",
   "version": "1.0.0",
   "main": "api/discord.js",
   "scripts": {
     "start": "vercel dev"
   },
   "dependencies": {
-    "discord-api-types": "^0.37.34"
+    "discord-interactions": "^2.0.2"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
