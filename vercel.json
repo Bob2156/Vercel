@@ -1,3 +1,13 @@
 {
-  "version": 2
+  "version": 2,
+  "routes": [
+    {
+      "src": "/api/discord",
+      "dest": "/api/discord.js"
+    },
+    {
+      "src": "/api/debug",
+      "dest": "/api/debug.js"
+    }
+  ]
 }
